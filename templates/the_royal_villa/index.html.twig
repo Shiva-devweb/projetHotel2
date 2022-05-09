@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The Royal Villa{% endblock %}
+
+{% block body %}
+
+<style>
+
+      .container-fluid {
+		margin: 0px;
+        padding: 0px;
+        
+	}
+
+	.image-back {
+		position: absolute;
+        height: 750px;
+        margin-bottom: 30px;
+        display: flex;
+	}
+
+	.text-image {
+		position: relative;
+		font-size: 45px;
+		font-weight: bold; 
+		font-family: source_serif_pro;
+		display: inline;
+        
+		 
+	}
+	.text-image p {
+        
+		font-family: source_serif_pro;
+        text-align: center;
+		margin: 0px 700px 350px 700px ;
+        border: hidden;
+        background-color: rgb(255, 255, 255, 0.5);
+		color: #40505d;
+	}
+	h2 {
+		margin: 20px 10px;
+		font-family: source_serif_pro;
+		font-size: 50px;
+		font-weight: bold;
+		text-align: center;
+		color: #6c757d;
+	}
+    .presentation {
+        padding: 50px;
+        margin: 20px;
+    }
+	.description {
+		margin:2px 200px 2px 200px;
+		padding: 30px;
+		font-family: source_serif_pro;
+		font-size: 20px;
+		color: #707070;
+		text-align: center;
+	}
+	.card {
+		margin: 50px 100px 50px 150px;
+		border-style: solid;
+		border-width: 2px;
+		border-color: #707070;
+		box-shadow: 10px;
+		background-color:#E0dbca;
+		text-align: center;
+		width: auto;
+		height: auto;
+		
+	}
+	.label {
+		flex: 1 ;
+	}
+
+	.label2 {
+		flex: 1 ;
+	}
+
+	.btn {
+		background-color: #707070;
+		border-color: #253238;
+	}
+	.card-title {
+		font-family: source_serif_pro;
+		font-weight: 150px;
+		background-color: rgb(255, 255, 255, 0.5);
+		color: #0e2e3d;
+		font-size: 30px;
+		position: relative;
+	}
+	.price{
+		font-weight: bold;
+	}
+    .thumbnail {
+		display: inline-block;
+    }
+
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+	<div class="image-back">
+	<img class= "back" src="/images/rvmain.jpg" alt=""/>
+	</div>
+	<div class= "text-image">
+	<p>The Royal Villa</p>
+	</div>
+    <div class= "presentation">
+	<h2>Nos établissements</h2>
+	<p class= "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at purus elit. Suspendisse turpis diam, mattis vel commodo in, viverra sit amet eros. </p>
+    </div>
+    </div>
+	<div class="row">
+	<div class="label"> 
+		
+		<div class="col-6 col-12">
+		<div class="card">
+			<h5 class="card-title">La suite Brad Pitt</h5>
+			<div class="img-card">
+				<img src="/images/trv/trv1.jpeg" class="card-img-top" alt="...">
+				<a href="/images/trv/trv2.jpeg"><img class= "thumbnail" width="110" height="80" src="/images/trv/trv2.jpeg"></a>
+				<a href="/images/trv/trv3.jpg"><img class= "thumbnail" width="110" height="80"  src="/images/trv/trv3.jpg"></a>
+				<a href="/images/trv/trv4.jpg"><img class= "thumbnail" width="110" height="80"  src="/images/trv/trv4.jpg"></a>
+				<a href="/images/trv/trv5.jpg"><img class= "thumbnail" width="110" height="80"  src="/images/trv/trv5.jpg"></a>
+				<a href="/images/trv/trv6.jpg"><img class= "thumbnail" width="110" height="80"  src="/images/trv/trv6.jpg"></a>
+				<a href="/images/trv/trv7.jpg"><img class= "thumbnail" width="110" height="80"  src="/images/trv/trv7.jpg"></a>
+			</div>
+			<div class="card-body">
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<p class="price"> 890€ la nuit</p>
+				<a href="/rvsuit1" class="btn btn-primary">En savoir plus</a>
+			</div>
+		</div>
+
+		</div>
+	</div>
+	<div class="label2"> 
+		<div class="col-6 col-12">
+		<div class="card" >
+			<h5 class="card-title">Card title</h5>
+			<img src="/images/rvsuit2.jpg" class="card-img-top" alt="...">
+			<div class="card-body">
+				
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<p class="price"> 890€ la nuit</p>
+				<a href="#" class="btn btn-primary">En savoir plus</a>
+			</div>
+		</div>
+
+		</div>
+	</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

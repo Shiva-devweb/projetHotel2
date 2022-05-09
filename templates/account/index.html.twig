@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte - Les suites d'Hypnos{% endblock %}
+
+{% block body %}
+<style>
+
+    .box{
+      position: relative;
+       margin: auto;
+       padding: 60px;
+       background-color: #e0dbca;
+       width: 1400px;
+       height: auto;
+       border: solid 2px #707070;
+    }
+    h1, p {
+        margin: 20px;
+        text-align: center;
+    }
+    section {
+        margin: 20px;
+        text-align: center;
+    }
+    footer {
+        position: absolute;
+        margin-top: 200px;
+    }
+</style>
+<div class="box">
+<h1>Mon compte</h1>
+<p>Bienvenue {{ app.user.surname}} dans votre compte</p>
+<section>
+<a href="{{ path('account_password') }}">modifier le mot de passe</a>
+</section>
+<section>
+<a href="#" >voir les réservations</a>
+</section>
+<div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+
+    .logo{
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        padding: 10px;
+        }
+
+    .menu {
+        font-family: source_serif_4;
+        float: right;
+        padding: 20px;
+        margin-right: 200px;
+        margin-top: 30px;
+        }
+
+    .navbar {
+        width: max-width;
+        display: flex;
+        background-color: rgba(148, 133, 133, 0.36);
+        
+    }
+    .nav-item {
+        font-size: 20px;    
+        padding: 6px;
+        width: 200px;
+        
+    }
+    
+    .nav-link{
+        color: #0e2e3d;
+    }
+    .navbar li {
+        list-style-type: none;
+        margin-left : auto;
+        margin-right : auto; 
+    }
+
+    footer h1{
+        font-family: source_serif_pro;
+        text-align: center;
+        color: #40505d;
+        
+    }
+    .social {
+        text-align: center;
+        color: #253238; 
+        margin-bottom: 40px;
+    }
+    svg {
+        margin: 50px 20px 50px 20px;
+    }
+    .droits {
+        margin: 20px;
+    }
+
+    .divider
+    {
+        width: 1200px;
+        height: 2px;
+        background: #707070;
+        margin: 0 auto;
+    }
+
+    h3 {
+        text-align: center;
+        color: #40505d;
+    }

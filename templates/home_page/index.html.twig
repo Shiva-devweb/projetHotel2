@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<style>
+    .container-fluid {
+		margin: 0px;
+		width: auto;
+	}
+
+	.image-back {
+		position: absolute;
+	}
+
+	.text-image {
+		position: relative;
+		padding: 450px;
+		font-size: 50px;
+		font-weight: bold; 
+		font-family: source_serif_pro;
+		display: inline;
+		 
+	}
+	.text-image p {
+		font-family: source_serif_pro;
+		margin-top: 350px;
+		margin-left: 400px;
+		color: #0e2e3d;
+	}
+	h2 {
+		margin: 20px 10px;
+		font-family: source_serif_pro;
+		font-size: 50px;
+		font-weight: bold;
+		text-align: center;
+		color: #6c757d;
+	}
+	.description {
+		margin:2px 200px 2px 200px;3
+		padding: 30px;
+		font-family: source_serif_pro;
+		font-size: 20px;
+		color: #707070;
+		text-align: center;
+	}
+	.card {
+		margin: 50px 100px 50px 150px;
+		padding: 30px;
+		border-style: solid;
+		border-width: 2px;
+		border-color: #707070;
+		box-shadow: 10px;
+		background-color:#E0dbca;
+		text-align: center;
+		width: auto;
+		height: 650px;
+	}
+	.label {
+		flex: 1 ;
+	}
+
+	.label2 {
+		flex: 1 ;
+	}
+
+	.btn {
+		background-color: #707070;
+		border-color: #707070;
+	}
+
+	.card-title h5 {
+		font-family: script-mt-bold;
+		font-weight: 150px
+	}
+</style>
+
+<div class="container-fluid">
+
+	<div class="image-back">
+	<img class= "back" src="images/fond1.jpg" alt=""/>
+	</div>
+	<div class= "text-image">
+	<p>Les suites d'Hypnos...</p>
+	</div>
+
+	<h2>Nos établissements</h2>
+	<p class= "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at purus elit. Suspendisse turpis diam, mattis vel commodo in, viverra sit amet eros. </p>
+	<div class="row">
+	<div class="label"> 
+		
+		<div class="col-6 col-12">
+		<div class="card">
+			<img src="images/RVSuit1.jpeg" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">The Royal Villa</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="/home/TheRoyalVilla" class="btn btn-primary">En savoir plus</a>
+			</div>
+		</div>
+
+		</div>
+	</div>
+	<div class="label2"> 
+		<div class="col-6 col-12">
+		<div class="card" >
+			<img src="images/hotel2.jpg" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">La Provence</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">En savoir plus</a>
+			</div>
+		</div>
+
+		</div>
+	</div>
+	</div>
+
+</div>
+{% endblock %}
+

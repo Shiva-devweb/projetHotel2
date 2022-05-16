@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -29,6 +31,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 255)]
     private $surname;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $relation;
+
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: Booking::class)]
+    private $booking;
+
+    #[ORM\ManyToMany(targetEntity: Suite::class, inversedBy: 'suite')]
+    private $suite;
+
+    public function __construct()
+    {
+        $this->booking = new ArrayCollection();
+        $this->suite = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,6 +156,72 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getRelation(): ?string
+    {
+        return $this->relation;
+    }
+
+    public function setRelation(string $relation): self
+    {
+        $this->relation = $relation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, booking>
+     */
+    public function getBooking(): Collection
+    {
+        return $this->booking;
+    }
+
+    public function addBooking(booking $booking): self
+    {
+        if (!$this->booking->contains($booking)) {
+            $this->booking[] = $booking;
+            $booking->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(booking $booking): self
+    {
+        if ($this->booking->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getClient() === $this) {
+                $booking->setClient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, suite>
+     */
+    public function getSuite(): Collection
+    {
+        return $this->suite;
+    }
+
+    public function addSuite(suite $suite): self
+    {
+        if (!$this->suite->contains($suite)) {
+            $this->suite[] = $suite;
+        }
+
+        return $this;
+    }
+
+    public function removeSuite(suite $suite): self
+    {
+        $this->suite->removeElement($suite);
 
         return $this;
     }

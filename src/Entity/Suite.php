@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SuiteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SuiteRepository::class)]
@@ -27,6 +29,20 @@ class Suite
 
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
+
+    #[ORM\ManyToOne(targetEntity: Manager::class, inversedBy: 'hotel')]
+    private $manager;
+
+    #[ORM\ManyToOne(targetEntity: Hotel::class, inversedBy: 'suite')]
+    private $hotel;
+
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'suite')]
+    private $suite;
+
+    public function __construct()
+    {
+        $this->suite = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,6 +105,57 @@ class Suite
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getManager(): ?manager
+    {
+        return $this->manager;
+    }
+
+    public function setManager(?manager $manager): self
+    {
+        $this->manager = $manager;
+
+        return $this;
+    }
+
+    public function getHotel(): ?hotel
+    {
+        return $this->hotel;
+    }
+
+    public function setHotel(?hotel $hotel): self
+    {
+        $this->hotel = $hotel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getSuite(): Collection
+    {
+        return $this->suite;
+    }
+
+    public function addSuite(User $suite): self
+    {
+        if (!$this->suite->contains($suite)) {
+            $this->suite[] = $suite;
+            $suite->addSuite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSuite(User $suite): self
+    {
+        if ($this->suite->removeElement($suite)) {
+            $suite->removeSuite($this);
+        }
 
         return $this;
     }

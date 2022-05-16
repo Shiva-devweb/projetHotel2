@@ -19,6 +19,12 @@ class Booking
     #[ORM\Column(type: 'date')]
     private $booking_end;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'Booking')]
+    private $client;
+
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $created_at;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +50,30 @@ class Booking
     public function setBookingEnd(\DateTimeInterface $booking_end): self
     {
         $this->booking_end = $booking_end;
+
+        return $this;
+    }
+
+    public function getClient(): ?User
+    {
+        return $this->client;
+    }
+
+    public function setClient(?User $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }
